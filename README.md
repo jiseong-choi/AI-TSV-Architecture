@@ -117,3 +117,5 @@ The core of this design is **Optimized Memory Management**:
 <p align="center">
   <b>This proposal was synthesized with the semantic essence of an architect.</b>
 </p>
+
+[![hits](https://myhits.vercel.app/api/hit/https%3A%2F%2Fgithub.com%2Fjiseong-choi%2FAI-TSV-Architecture?color=blue&label=hits&size=small&base_count=10)](https://myhits.vercel.app)
