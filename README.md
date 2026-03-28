@@ -23,7 +23,7 @@
 시스템은 역할에 따라 두 개의 티어로 분리되어 상호작용합니다.
 
 * **Tier 1: Semantic Distiller (Flash)**
-    * **Input:** Raw User Data, Unstructured Logs, Long Bio.
+    * **Input:** Raw User Data, Unstructured Logs, Long Bio. + multimodal
     * **Output:** JSON-based Semantic Vector ($V_{semantic}$).
     * **Objective:** 정보 밀도를 극대화하여 토큰 점유율 최소화.
 
@@ -35,7 +35,10 @@
 ### 3.2 Recursive State Feedback (재귀적 상태 환류)
 본 설계의 핵심은 **'기억의 최적화'**입니다. 고성능 모델의 답변 중 핵심 결론만을 다시 저비용 모델이 요약하여 **Dynamic History Chunk**에 저장함으로써, 무한히 지속 가능한 맥락 유지 로직을 구현합니다.
 
-
+### 3.2 Recursive Contextual Re-injection (재귀적 맥락 환류)
+본 설계는 대화의 흐름을 **'재귀적으로 요약(Recursive Summary)'**하여 유지합니다.
+1.  **Distillation:** Pro의 답변($A$)을 Flash가 50자 내외의 **지식 증류체($E$)**로 압축.
+2.  **Memory Stack:** $E$를 동적 히스토리에 누적하며, 임계점 초과 시 전체 히스토리를 다시 한 번 **메타 요약(Meta-Summary)**하여 메모리 누수 방지.
 
 ---
 
