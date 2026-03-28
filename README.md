@@ -1,3 +1,98 @@
+---
+
+<div align="center">
+  <h3>🌐 Choose Your Language / 언어를 선택하세요</h3>
+  
+  <p>
+    <a href="#-english-version">🇺🇸 English</a> | 
+    <a href="#-한국어-버전">🇰🇷 한국어</a>
+  </p>
+</div>
+
+---
+
+## 🇺🇸 English Version
+
+<details open>
+<summary><b>Click to expand/collapse (English)</b></summary>
+<br>
+
+</details>
+
+# 🏛️ Research: Token-Slim Vectorize (TSV) Architecture
+> **High-Density Semantic Distillation and Recursive Context Management in LLM Cascading**
+
+This paper proposes a **'Hierarchical Context Distillation'** architecture design and research plan to address the high cost and high latency issues of large-scale language model (LLM) operations.
+
+---
+
+## 1. Executive Summary (초록)
+Current LLM service architectures have an inefficient structure that re-inputs vast personas and histories at every request. This study proposes a **'single-separation rocket'** architecture that leverages a low-cost model (Gemini Flash) to compress raw data into **high-density semantic vectors** and inject them into the inference engine of a high-performance model (Gemini Pro). This reduces token consumption by **80% or more, and maximizes productivity within the daily quota (Quota).
+
+---
+
+## 2. Problem Statement
+1. **Token Inflation:** Unnecessary modifiers and overlapping background knowledge incurs costs on each call.
+2. **Context Window Drift:** The longer the conversation, the more diluted the core context or exceeded the model's input limit.
+3. **Quota Sensitivity: ** Engineering continuity disconnected in Free-tier and API Rate Limit situations.
+
+---
+
+## 3. Proposed Architecture (proposed design)
+
+### 3.1 Dual-Model Cascading Pipeline
+The system is divided into two tiers and interacts, depending on its role.
+
+* **Tier 1: Semantic Distiller (Flash)**
+    * **Input:** Raw User Data, Unstructured Logs, Long Bio. + multimodal
+    * **Output:** JSON-based Semantic Vector ($V_{semantic}$).
+    * **Objective: ** Minimize token share by maximizing information density.
+
+* **Tier 2: Strategic Reasoner (Pro)**
+    * **Input:** $V_{semantic}$ + Real-time Query.
+    * **Output:** High-level Technical Solution & Code.
+    * **Objective: ** Performs the highest level of reasoning with minimal 'clean' data.
+
+### 3.2 Recursive State Feedback
+The key to this design is **'Memory Optimization'**. Only the key conclusions of the high-performance model's answers are summarized again by the low-cost model and stored in **Dynamic History Chunk**, thereby implementing an infinitely sustainable contextual logic.
+
+### 3.2 Recursive Contextual Re-Injection
+This design maintains the flow of conversations **'Recursive Summary'**.
+1. **Distillation:**Pro's answer ($A$) is compressed by Flash into a **Knowledge Distiller ($E$)** of around 50 characters.
+2. **Memory Stack:**$E$ is accumulated in dynamic history, and the entire history is once again **meta-summary** to prevent memory leakage when the threshold is exceeded.
+
+---
+
+## 4. Technical Specifications & Roadmap (연구 로드맵)
+
+### 📊 Phase 1: Context Encoding (Current)
+- [x] extracting and simulating 512-dimensional semantic vectors of users
+- [x] Establishment of data handshaking protocols between Flash-Pro models
+
+### 🛠️ Phase 2: System Hardening (Next Step)
+- [ ] **Failover Logic:** 429 Automatic model switching upon Too Many Requests (Rate Limit) detection.
+- [ ] **Vector Persistence:** Permanent storage of compressed vectors to local storage or Vector DB.
+
+### 🚀 Phase 3: Deployment (2026.03)
+- [ ] Virtualization deployment and practical application testing in WSL2/k3d environments.
+- [ ] Distribution of the 'Token-Slim' module through open-source libraryization.
+
+---
+
+## 5. Expected Impact
+| Indicators | Traditional Architecture | **TSV Architecture (proposed)** | Improvement Rate |
+| :--- | :--- | :--- | :--- |
+| **Average input tokens** | 2,000+ Tokens | **250-300 Tokens** | **-85% ||
+| **Operating Cost (OPEX)** | Rely 100% on high-cost models | **Optimize costs with model mix** | **-70%**|
+| **Context retention** | Forget when context window exceeds | **Long-term memory with recursive summaries** | **Infinite**|
+---
+
+## 🇰🇷 한국어 버전
+
+<details>
+<summary><b>클릭하여 내용 펼치기 (한국어)</b></summary>
+<br>
+
 # 🏛️ Research: Token-Slim Vectorize (TSV) Architecture
 > **High-Density Semantic Distillation and Recursive Context Management in LLM Cascading**
 
