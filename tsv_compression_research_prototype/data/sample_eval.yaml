@@ -1,0 +1,7 @@
+turns:
+  - "Project goal: build a TSV system for long engineering conversations. Repeated background is expensive."
+  - "Constraint: do not summarize the memory. We need compression-first behavior and exact evidence spans."
+  - "We will compare full-history replay, lossy summary memory, and exact-span packing."
+  - "Please design the evaluation metrics for token usage, latency, contradiction rate, and recall."
+  - "Implementation note: use SQLite for persistence and a mock provider first."
+  - "Question: what should be stored as true lossless archive versus what can be selected extractively for reasoning?"
